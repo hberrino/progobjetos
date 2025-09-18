@@ -9,6 +9,7 @@ public class Serie {
     private String genero;
     private ArrayList<Temporada> temporadas;
 
+
     public Serie (String titulo, String descripcion, String creador, String genero){
         this.titulo=titulo;
         this.descripcion=descripcion;
@@ -16,23 +17,34 @@ public class Serie {
         this.genero=genero;
         this.temporadas = new ArrayList<>();
     }
-
-
-    public void agregarTemporada (Temporada temporada){
-        temporadas.add(temporada);
-    }
-    public String getTitulo () {
+    public String getTitulo() {
         return titulo;
     }
-    public String getDescripcion (){
-        return descripcion;
-    }
-
-    public String getCreador (){
+    public String getCreador() {
         return creador;
     }
-    public String getGenero (){
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public String getGenero() {
         return genero;
     }
-
+    public void agregarTemporada (Temporada t){
+        temporadas.add(t);
+    }
+    public int getVistosSerie (){
+        int suma = 0;
+        for (Temporada season : temporadas){
+            suma+=season.getCantidadVistos();
+        }
+        return suma;
+    }
+    public boolean seVioTodaSerie() {
+        for (Temporada season : temporadas) {
+            if (season.getCantidadVistos() < season.getCantidadCapitulos()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

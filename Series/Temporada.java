@@ -3,44 +3,39 @@ package Series;
 import java.util.ArrayList;
 
 public class Temporada {
-    private int numero;
-    private ArrayList<Episodeo> episodeos;
 
-    public Temporada (int numero){
-        this.numero = numero;
-        this.episodeos = new ArrayList<>();
+    private ArrayList<Capitulo> capitulos;
+
+    public Temporada (){
+        this.capitulos = new ArrayList<>();
     }
-    public void agregarEpisodeo (Episodeo episodeo){
-        episodeos.add(episodeo);
+    public void agregarCapitulo (Capitulo c){
+        capitulos.add(c);
     }
-    public ArrayList<Episodeo> getEpisodios() {
-        return episodeos;
-    }
-    public int totalVistos (){
-        int contador=0;
-        for (Episodeo e : episodeos){
-            if(e.isVisto()){
+    public int getCantidadVistos() {
+        int contador = 0;
+        for (Capitulo cap : capitulos) {
+            if (cap.isSeVio()) {
                 contador++;
             }
         }
         return contador;
     }
-    private double promedioCalificaciones (){
-        double suma=0;
-        double cont=0;
-        for (Episodeo e : episodeos){
-            if (e.isVisto()){
-                suma+= e.getCalificacion();
-                cont++;
+    public double getCalificacionPromedio (){
+        double suma = 0;
+        double vistos = getCantidadVistos();
+        if (vistos==0){
+            return -1;
+        }
+        for (Capitulo cap : capitulos){
+            if (cap.isSeVio()){
+                suma+=cap.getCalificacion();
             }
         }
-        return cont > 0 ? suma/cont : 0;
+        return suma/vistos;
     }
-    public boolean seVioCompleta() {
-        for (Episodeo e : episodeos) {
-            if (!e.isVisto()) return false;
-        }
-        return true;
+    public int getCantidadCapitulos() {
+        return capitulos.size();
     }
 
 }
