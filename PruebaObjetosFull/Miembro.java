@@ -1,4 +1,4 @@
-package Parcial2024;
+package PruebaObjetosFull;
 
 public abstract class Miembro {
     private String nombre;
@@ -12,5 +12,6 @@ public abstract class Miembro {
     public abstract double gananciaPorProducto();
     public abstract int cantidadTotalVentas();
     public abstract int cantidadTotalProductosVendidos();
+    public abstract double edadRank ();
 
 }

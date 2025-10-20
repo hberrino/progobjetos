@@ -1,4 +1,4 @@
-package Parcial2024;
+package PruebaObjetosFull;
 
 import java.util.ArrayList;
 
@@ -45,6 +45,9 @@ public class Vendedor extends Miembro {
             total+=v.getCantVendidos();
         }
         return total;
+    }
+    public double edadRank (){
+        return (double) cantidadTotalVentas()/edad;
     }
 
 }

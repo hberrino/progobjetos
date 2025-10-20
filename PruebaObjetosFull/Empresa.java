@@ -1,4 +1,4 @@
-package Parcial2024;
+package PruebaObjetosFull;
 
 import java.util.ArrayList;
 

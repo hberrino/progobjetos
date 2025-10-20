@@ -1,4 +1,4 @@
-package Parcial2024;
+package PruebaObjetosFull;
 
 import java.time.LocalDate;
 
@@ -35,7 +35,5 @@ public class Venta {
     public double gananciaPorVenta (){
         return montoVenta*cantVendidos;
     }
-
-
 
 }

@@ -1,4 +1,4 @@
-package Parcial2024;
+package PruebaObjetosFull;
 
 import java.util.ArrayList;
 
@@ -38,5 +38,19 @@ public class Equipo extends Miembro{
             total += m.cantidadTotalProductosVendidos();
         }
         return total;
+    }
+    public double edadRank (){
+        double edades = 0;
+        double cantVendedores=0;
+        double promedio=0;
+        for (Miembro m : miembros){
+            if(m instanceof Vendedor){
+                Vendedor v = (Vendedor) m;
+                edades+=v.getEdad();
+                cantVendedores++;
+            }
+        }
+        promedio = edades/cantVendedores;
+        return cantidadTotalVentas()/promedio;
     }
 }
